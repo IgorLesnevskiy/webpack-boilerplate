@@ -1,0 +1,44 @@
+/* This file was generated automatically */
+
+$iconFontName: '{{fontName}}';
+
+@font-face {
+	font-family: $iconFontName;
+	src: url('/fonts/webfont/{{fontName}}.woff') format('woff'),
+	url('/fonts/webfont/{{fontName}}.woff2') format('woff2')
+}
+
+@mixin webfont-icon($icon-code, $after-or-before: 'before') {
+	&:#{$after-or-before} {
+		content: #{'"\\' + $icon-code + '"'};
+		display: inline-block;
+		font-family: $iconFontName;
+		font-style: normal;
+		line-height: 1;
+		color: currentColor;
+		-webkit-font-smoothing: antialiased;
+		speak: none;
+	}
+}
+
+{{#each codepoints}}
+$webfont-icon--{{@key}}: "\\{{this}}";
+{{/each}}
+
+
+.webfont-icon {
+	font-family: $iconFontName;
+	display: inline-block;
+	vertical-align: middle;
+	font-style: normal;
+	speak: none;
+	color: currentColor;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+{{#each codepoints}}
+.{{../classPrefix}}{{@key}}:before {
+   content: "\\{{this}}";
+}
+{{/each}}

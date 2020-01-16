@@ -1,0 +1,31 @@
+// Цвета
+//TODO цикл для генерации атомарных классов
+
+$color--black: #000000;
+$color--onyx: #111111;
+$color--error: #e24831;
+
+
+.color-black {
+	color: $color--black;
+}
+
+.color-onyx {
+	color: $color--onyx;
+}
+
+.color-error {
+	color: $color--error;
+}
+
+.bg-color-black {
+	background-color: $color--black;
+}
+
+.bg-color-onyx {
+	background-color: $color--onyx;
+}
+
+.bg-color-error {
+	background-color: $color--error;
+}

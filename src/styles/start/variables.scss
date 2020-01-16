@@ -1,0 +1,22 @@
+$base-font-size: 10px;
+$base-line-height: 1.3;
+
+$base-font-family: "Roboto", Helvetica, sans-serif;
+$alt-font-family: "Roboto", Helvetica, sans-serif;
+
+$site-max-width: 1140px;
+$site-min-width: 320px;
+
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+$breakpoint-xs: 0;
+
+$breakpoint-small: $breakpoint-xs;
+$breakpoint-mobile: $breakpoint-sm;
+$breakpoint-tablet: $breakpoint-md;
+$breakpoint-desktop: $breakpoint-lg;
+
+$base-font-color: $color--black;
+$animation-speed: 0.2s;

@@ -1,0 +1,60 @@
+/* This file was generated automatically */
+
+$iconFontName: 'webfont';
+
+@font-face {
+	font-family: $iconFontName;
+	src: url('/fonts/webfont/webfont.woff') format('woff'),
+	url('/fonts/webfont/webfont.woff2') format('woff2')
+}
+
+@mixin webfont-icon($icon-code, $after-or-before: 'before') {
+	&:#{$after-or-before} {
+		content: #{'"\\' + $icon-code + '"'};
+		display: inline-block;
+		font-family: $iconFontName;
+		font-style: normal;
+		line-height: 1;
+		color: currentColor;
+		-webkit-font-smoothing: antialiased;
+		speak: none;
+	}
+}
+
+$webfont-icon--close-envelope: "\f101";
+$webfont-icon--pointer: "\f102";
+$webfont-icon--social--fb: "\f103";
+$webfont-icon--social--github: "\f104";
+$webfont-icon--social--linkedin: "\f105";
+$webfont-icon--social--medium: "\f106";
+
+
+.webfont-icon {
+	font-family: $iconFontName;
+	display: inline-block;
+	vertical-align: middle;
+	font-style: normal;
+	speak: none;
+	color: currentColor;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.webfont-icon--close-envelope:before {
+   content: "\f101";
+}
+.webfont-icon--pointer:before {
+   content: "\f102";
+}
+.webfont-icon--social--fb:before {
+   content: "\f103";
+}
+.webfont-icon--social--github:before {
+   content: "\f104";
+}
+.webfont-icon--social--linkedin:before {
+   content: "\f105";
+}
+.webfont-icon--social--medium:before {
+   content: "\f106";
+}

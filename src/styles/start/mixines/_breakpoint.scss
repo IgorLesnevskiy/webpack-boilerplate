@@ -1,0 +1,37 @@
+$breakpoint-xl: 1200px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-xs: 0 !default;
+
+$breakpoints: xl, lg, md, sm, xs;
+
+@mixin breakpoint($point) {
+	@if $point == xl {
+		@media (min-width: $breakpoint-xl) { @content; }
+	}
+	@else if $point == lg {
+		@media (min-width: $breakpoint-lg) { @content; }
+	}
+	@else if $point == md {
+		@media (min-width: $breakpoint-md) { @content; }
+	}
+	@else if $point == sm {
+		@media (min-width: $breakpoint-sm) { @content; }
+	}
+	@else if $point == xs {
+		@media (min-width: $breakpoint-xs) { @content; }
+	}
+}
+
+@mixin breakpoint-width($max-width) {
+	@media (max-width: $max-width) { @content; }
+}
+
+@mixin breakpoint-height($max-height) {
+	@media (max-height: $max-height) { @content; }
+}
+
+@mixin breakpoint-width-height($max-width, $max-height) {
+	@media (max-width: $max-width), (max-height: $max-height) { @content; }
+}

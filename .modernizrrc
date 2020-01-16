@@ -1,0 +1,21 @@
+{
+    "minify": false,
+    "classPrefix": "feature-",
+    "options": [
+        "setClasses",
+        "mq"
+    ],
+    "feature-detects": [
+        "svg",
+        "css/flexbox",
+        "css/flexwrap",
+        "css/checked",
+        "css/animations",
+        "event/oninput",
+        "css/transforms",
+        "css/transforms3d",
+        "video",
+        "img/webp",
+        "speech/speech-recognition"
+    ]
+}

@@ -1,0 +1,38 @@
+///* ----------------------------------- *\
+//            Roboto
+//\* ----------------------------------- */
+@font-face {
+	font-family: 'Roboto';
+	src: local('Roboto Light'), local('Roboto-Light'),
+		url('/fonts/Roboto/light/roboto-light.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		url('/fonts/Roboto/light/roboto-light.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-style: normal;
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: local('Roboto Regular'), local('Roboto-Regular'),
+		url('/fonts/Roboto/regular/roboto-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		url('/fonts/Roboto/regular/roboto-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: local('Roboto Medium'), local('Roboto-Medium'),
+		url('/fonts/Roboto/medium/roboto-medium.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		url('/fonts/Roboto/medium/roboto-medium.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: local('Roboto Bold'), local('Roboto-Bold'),
+		url('/fonts/Roboto/bold/roboto-bold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		url('/fonts/Roboto/bold/roboto-bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-style: normal;
+	font-weight: 700;
+}

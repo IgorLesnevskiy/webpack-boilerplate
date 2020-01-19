@@ -3,6 +3,7 @@ const argv = require('yargs').argv;
 const fs = require('fs');
 const webpack = require('webpack');
 
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -19,7 +20,7 @@ const config = {
 	},
 	paths: {
 		cache: './cache',
-		deployRoot: '/',
+		publicPath: process.env.PUBLIC_PATH || '/',
 		src: {
 			root: './src',
 			templates: './src/templates',
@@ -30,6 +31,7 @@ const config = {
 			webFont: './src/fonts/webfont',
 			webfontIcons: './src/webfont-icons',
 			images: './src/images',
+			favicon: './src/images/favicon.jpg',
 		},
 		dist: {
 			root: './dist',
@@ -57,7 +59,8 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: (config.options.production) ? 'js/[name].bundle.min.js' : 'js/[name].bundle.js',
-		pathinfo: !config.options.production
+		pathinfo: !config.options.production,
+		publicPath: config.paths.publicPath,
 	},
 	optimization: {
 		minimizer: [
@@ -132,7 +135,21 @@ module.exports = {
 						loader: 'pug-loader'
 					}
 				]
-			}
+			},
+			{
+				test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+				loader: 'file-loader',
+				options: {
+					outputPath: 'fonts',
+				},
+			},
+			{
+				test: /\.(webp|png|jpe?g|gif|ico)$/i,
+				loader: 'file-loader',
+				options: {
+					outputPath: 'images'
+				},
+			},
 		],
 	},
 	plugins: [
@@ -158,18 +175,6 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: (config.options.production) ? 'css/[name].bundle.min.css' : 'css/[name].bundle.css',
 		}),
-		new CopyPlugin([
-			{
-				from: config.paths.src.fonts,
-				to: 'fonts',
-				force: true,
-			},
-			{
-				from: config.paths.src.images,
-				to: 'images',
-				force: true,
-			},
-		]),
 		...pugPages.map((page) => {
 			return new HtmlWebpackPlugin({
 				filename: `${path.parse(page).name}.html`,
@@ -188,7 +193,27 @@ module.exports = {
 					useShortDoctype: true
 				}
 			})
-		})
+		}),
+		new FaviconsWebpackPlugin({
+			logo: config.paths.src.favicon,
+			cache: true,
+			outputPath: './images/favicon',
+			prefix: 'images/favicon',
+			inject: true,
+			favicons: {
+				icons: {
+					android: true,              // Create Android homescreen icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					appleIcon: true,            // Create Apple touch icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					appleStartup: true,         // Create Apple startup images. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					coast: true,                // Create Opera Coast icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					favicons: true,             // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					firefox: true,              // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					windows: true,              // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+					yandex: true                // Create Yandex browser icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+				}
+			}
+		}),
+
 	],
 	resolve: {
 		alias: {

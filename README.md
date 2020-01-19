@@ -4,6 +4,6 @@
 
 - __watch__ - start development server
 - __deploy__ - deploy the project by FTP
-- __generateWebfont__ - generate webfont
+- __generate-webfont__ - generate webfont
 - __build:production__ - build for production
 - __build:development__ - build for development

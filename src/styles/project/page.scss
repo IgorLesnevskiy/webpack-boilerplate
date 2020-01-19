@@ -9,10 +9,6 @@
 		flex-shrink: 1;
 		flex-wrap: wrap;
 		flex-direction: column;
-
-		body.loaded & {
-			display: flex;
-		}
 	}
 }
 
@@ -32,5 +28,17 @@
 
 	&__footer {
 		flex-shrink: 0;
+	}
+}
+
+.page-section {
+	overflow: hidden;
+	width: 100%;
+
+	&__inner {
+		max-width: $site-max-width;
+		min-width: $site-min-width;
+		margin: 0 auto;
+		padding: 0 2rem;
 	}
 }

@@ -90,7 +90,7 @@ module.exports = {
 					loader: 'babel-loader',
 					options: {
 						cacheDirectory: config.options.cache,
-						presets: ['@babel/preset-env']
+						presets: ['@babel/env']
 					}
 				}
 			},
